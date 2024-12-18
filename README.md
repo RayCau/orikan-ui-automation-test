@@ -2,11 +2,25 @@
 
 ## Description
 
-Technical test code for Orikan's UI Automation Test. This project is an automated testing suite built with **Jest** and **Playwright** to test the functionalities of a web application. 
+Technical test code including documentation for Orikan's UI Automation Test. This project is an automated testing suite built with **Jest** and **Playwright** to test the functionalities of a web application. 
 
 ---
 
-## Getting Started
+### File list:
+```bash
+/orikan-ui-automation-test
+├── /docs
+│   └── raymond-caucci-orikan-ui-automation-test-documentation.pdf
+├── emailRegistration.test.js
+├── contactRegistration.test.js
+├── paymentRegistration.test.js
+├── termsAndConditions.test.js
+├── playwright.config.js
+├── package.json
+├── package-lock.json
+├── .gitignore
+└── README.md
+```
 
 ### Prerequisites
 
