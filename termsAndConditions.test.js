@@ -97,7 +97,7 @@ describe ('Payment Form Registration Test', () => {
         await page.locator('#agreedToTerms').check();
 
         const submitButton = await page.locator('.wizard-button.primary');
-        // Wait for the submikt button to be present in the dom and visible in the dom before clicking
+        // Wait for the submit button to be present in the dom and visible in the dom before clicking
         await submitButton.waitFor({ state: 'attached' });
         await submitButton.waitFor({ state: 'visible' });
         // Click the submit button
@@ -116,7 +116,7 @@ describe ('Payment Form Registration Test', () => {
     /** Test Case 2 NEGATIVE case: Do not scroll to the bottom of terms and conditions click the submit button and check if error is thrown*/
     it('should scroll to bottom of terms and condition text area, click the agree button and submit', async () =>{
         const submitButton = await page.locator('.wizard-button.primary');
-        // Wait for the submikt button to be present in the dom and visible in the dom before clicking
+        // Wait for the submit button to be present in the dom and visible in the dom before clicking
         await submitButton.waitFor({ state: 'attached' });
         await submitButton.waitFor({ state: 'visible' });
         // Click the submit button
