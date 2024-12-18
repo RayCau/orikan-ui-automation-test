@@ -240,7 +240,7 @@ describe('Contact Form Registration Test', () => {
         await page.fill('#postcode', '3');
         //await error messages appearance
         const errorMessage = await page.locator('div.validation.error span');
-        //await firstname and lastname error messages 
+        //await postcode error messages 
         const postcodeErrorMessage = await errorMessage.locator('text=Please enter a valid postcode');
         //validate if the error message is thrown
         expect(await postcodeErrorMessage.isVisible()).toBe(true);
@@ -253,7 +253,7 @@ describe('Contact Form Registration Test', () => {
         await page.fill('#postcode', '33');
         //await error messages appearance
         const errorMessage = await page.locator('div.validation.error span');
-        //await firstname and lastname error messages 
+        //await postcode error messages 
         const postcodeErrorMessage = await errorMessage.locator('text=Please enter a valid postcode');
         //validate if the error message is thrown
         expect(await postcodeErrorMessage.isVisible()).toBe(true);
@@ -266,10 +266,23 @@ describe('Contact Form Registration Test', () => {
         await page.fill('#postcode', '333333333333');
         //await error messages appearance
         const errorMessage = await page.locator('div.validation.error span');
-        //await firstname and lastname error messages 
+        //await postcode error message
         const postcodeErrorMessage = await errorMessage.locator('text=Please enter a valid postcode');
         //validate if the error message is thrown
         expect(await postcodeErrorMessage.isVisible()).toBe(true);
+    });
+
+    /**Test case 11 NEGATIVE CASE: This test fills out city with a numerical character and checks if there is a corresponding error
+     */
+    it('should fill city with invalid numeric character and check if an error is thrown', async () =>{
+        //fill city with invalid numeric character
+        await page.fill('#city', '3');
+        //await error messages appearance
+        const errorMessage = await page.locator('div.validation.error span');
+        //await city error message
+        const cityErrorMessage = await errorMessage.locator('text=Please enter a valid postcode');
+        //validate if the error message is thrown
+        expect(await cityErrorMessage.isVisible()).toBe(true);
     });
     
 });

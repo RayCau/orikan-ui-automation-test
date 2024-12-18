@@ -80,7 +80,7 @@ describe('Email Form Registration Test', () => {
         await page.fill('#confirmPassword', '12345');
         await page.click('.wizard-button.primary');
 
-        // Validate
+        // Validate error message
         const errorMessage = await page.textContent('div.validation.error span');
         expect(errorMessage).toBe('Email Address is required');
     });
