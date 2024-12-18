@@ -10,6 +10,7 @@ describe('Contact Form Registration Test', () => {
     });
 
     beforeEach(async () =>{
+
         //reinstantiate instance of page launching new chromium browser for each test
         page = await browser.newPage();
         //go to the website
@@ -46,6 +47,7 @@ describe('Contact Form Registration Test', () => {
 
     /**Test case 1 POSITIVE CASE: This test case fills out all required fields with valid inputs */
     it('should fill out all required fields and check if moved on to the next page', async () =>{
+        
         //fill first name field with valid input
         await page.fill('#firstName', 'John');
         //fill middle name field with valid input
@@ -80,6 +82,7 @@ describe('Contact Form Registration Test', () => {
 
     /**Test case 2 NEGATIVE CASE: This test case fills out all required fields that require keyboard input with 1 whitespace */
     it('should fill out all required fields with one whitespace character and check if site has not moved on to the next page', async () =>{
+        
         //fill fields with single whitespace
         await page.fill('#firstName', ' ');
         await page.fill('#middleName', ' ');
@@ -108,6 +111,7 @@ describe('Contact Form Registration Test', () => {
 
     /**Test case 2 NEGATIVE CASE: This test case fills out all required fields that require keyboard input with invalid special characters */
     it('should fill out all required fields with one whitespace character and check if the site has not moved on to the next page', async () =>{
+        
         //fill fields with invalid characters
         await page.fill('#firstName', '#@^&$%');
         await page.fill('#middleName', '#@^&$%');
@@ -135,6 +139,7 @@ describe('Contact Form Registration Test', () => {
 
     /**Test case 3 NEGATIVE CASE: This test case does not fill out required fields and checks if error messages are thrown for each field */
     it('should fill out all required fields with one whitespace character and check if the site has not moved on to the next page', async () =>{
+        
         //fill first name field with valid input
         await page.fill('#firstName', '');
         //fill last name field with valid input
@@ -168,6 +173,7 @@ describe('Contact Form Registration Test', () => {
 
     /**Test case 4 NEGATIVE CASE: This test case does not fill out first and last name and checks if error messages are thrown for both */
     it('should not fill first name and last name and check if error messages are thrown for both', async () =>{
+        
         //do not fill first and last name fields
         await page.fill('#firstName', '');
         await page.fill('#lastName', '');
@@ -185,6 +191,7 @@ describe('Contact Form Registration Test', () => {
 
     /**Test case 5 NEGATIVE CASE: This test case DOES NOT fill out first name but fills out the last name and checks if error messages are thrown for only the first name */
     it('should not fill out first name and fill out last name and check if error messages are thrown for only the first name', async () =>{
+        
         //do not fill first name but fill last name
         await page.fill('#firstName', '');
         await page.fill('#lastName', 'Johnson');
@@ -203,6 +210,7 @@ describe('Contact Form Registration Test', () => {
 
     /**Test case 6 NEGATIVE CASE: This test case fills out the first name but DOES NOT fill out the last name and checks if error messages are thrown for only the last name */
     it('should fill out the first name and not fill out last name and check if error message is thrown only for last name', async () =>{
+        
         //do not fill first and last name fields
         await page.fill('#firstName', 'John');
         await page.fill('#lastName', '');
@@ -223,6 +231,7 @@ describe('Contact Form Registration Test', () => {
      * between first and last name in the automatically filled out preferred full name field.
      */
     it('should fill out all required fields with one whitespace character and check if site has not moved on to the next page', async () =>{
+        
         //fill first and last name
         await page.fill('#firstName', 'John');
         await page.fill('#lastName', 'Doe');
@@ -236,6 +245,7 @@ describe('Contact Form Registration Test', () => {
     /**Test case 8 NEGATIVE CASE: This test fills out postcode with value of length 1 checks if there is a corresponding error
      */
     it('should fill postcode with invalid postcode of length 1 and check if an error is thrown', async () =>{
+        
         //fill postcode with value of length 1
         await page.fill('#postcode', '3');
         //await error messages appearance
@@ -249,6 +259,7 @@ describe('Contact Form Registration Test', () => {
     /**Test case 9 NEGATIVE CASE: This test fills out postcode with value of length 2 checks if there is a corresponding error
      */
     it('should fill postcode with invalid postcode of length 2 and check if an error is thrown', async () =>{
+        
         //fill postcode with value of length 2
         await page.fill('#postcode', '33');
         //await error messages appearance
@@ -262,6 +273,7 @@ describe('Contact Form Registration Test', () => {
     /**Test case 10 NEGATIVE CASE: This test fills out postcode with value of length 12 checks if there is a corresponding error
      */
     it('should fill postcode with invalid postcode of length 12 and check if an error is thrown', async () =>{
+        
         //fill postcode with value of length 12
         await page.fill('#postcode', '333333333333');
         //await error messages appearance
@@ -275,6 +287,7 @@ describe('Contact Form Registration Test', () => {
     /**Test case 11 NEGATIVE CASE: This test fills out city with a numerical character and checks if there is a corresponding error
      */
     it('should fill city with invalid numeric character and check if an error is thrown', async () =>{
+        
         //fill city with invalid numeric character
         await page.fill('#city', '3');
         //await error messages appearance
