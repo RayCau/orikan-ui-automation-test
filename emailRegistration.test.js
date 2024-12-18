@@ -1,16 +1,12 @@
 const { chromium } = require('playwright');
 
-describe('Form Automation Test', () => {
+describe('Email Form Registration Test', () => {
   let browser;
   let page;
 
   beforeAll(async () => {
     //store instance of launched chromium browser in browser obj
     browser = await chromium.launch();
-    //store new tab 
-    page = await browser.newPage(); // Opens a new page
-    //go to the website
-    await page.goto('https://orikan-ui-automation-test.azurewebsites.net/');
   });
 
   beforeEach(async () => {
@@ -20,14 +16,21 @@ describe('Form Automation Test', () => {
     await page.goto('https://orikan-ui-automation-test.azurewebsites.net/');
   });
 
-  afterAll(async () => {
+
+  afterAll(async () =>{
     //close browser when test suite is finished running
-    await browser.close(); 
+    if(browser){
+        await browser.close(); 
+    }
+    
   });
 
-  afterEach(async () => {
+  afterEach(async () =>{
     // Close new page after each test
-    await page.close();
+    if(page){
+        await page.close();
+    }
+    
   });
 
 
@@ -162,6 +165,7 @@ describe('Form Automation Test', () => {
       //locate the circle pertaining to the contact page of the form 
       const contactCircle = page.locator('app-wizard-page-item[title="Contact"] circle.wizard-icon');
       //check that it is not filled
+      expect(fillValue).not.toBeNull();
       expect(await contactCircle.getAttribute('fill')).toBe('none');
   });
 });
